@@ -40,21 +40,38 @@ public class Student {
 			// Enroll in courses
 	 public void enroll() {		
 		 //Get inside a loop , user hits 0
-		 System.out.println("Enter course to enroll (Q to quit): ");
-		 Scanner in = new Scanner(System.in);
-		 String course = in.nextLine();
-		 if( course != "Q")
-		 {
-			 courses = courses + "\n" + course ;
-			 tuitionBalance = tuitionBalance + costtOfCourse;
-		 }
+		 do {
+		  System.out.print("Enter course to enroll (Q to quit): ");
+		  Scanner in = new Scanner(System.in);
+		  String course = in.nextLine();
+		  if( !course.equals("Q"))
+		  {
+			  courses = courses + "\n" + course ;
+			  tuitionBalance = tuitionBalance + costtOfCourse;
+		  }else {
+			  System.out.println("Break!");
+			  break;
+		  }
+		  
+		  
+		 } while(1 !=  0 );
+			 
+			 
 		 System.out.println("Enrolled In : "+courses);
-		 System.out.println("Tuition Balance" +tuitionBalance);
+		 System.out.println("Tuition Balance " +tuitionBalance);
 	 }
 			//View balance
+	 public void viewBalance() {
+		 System.out.println("Your balance is: $"+tuitionBalance);
+	 }
 			
 			//Pay tuition
-			
+	public void payTuition(int payment)
+	{
+		tuitionBalance = tuitionBalance - payment;
+		System.out.println("Thankyou for your Paymment of $ " +payment);
+		viewBalance();
+	}
 			// Show status 
 
 }
